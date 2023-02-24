@@ -1,9 +1,9 @@
-import { AnimatePresence } from 'framer-motion';
 import React from 'react';
-import Layout from './src/components/RootLayout';
+import RootLayout from './src/components/RootLayout';
+import PageLayout from './src/components/PageLayout';
 
 export const wrapRootElement = ({ element, props }) => 
-    <Layout {...props}>{element}</Layout>
+    <RootLayout {...props}>{element}</RootLayout>
 
 export const wrapPageElement = ({ element, props }) =>
-    <AnimatePresence mode='wait'>{element}</AnimatePresence>
+    <PageLayout>{element}</PageLayout>
