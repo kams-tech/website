@@ -1,5 +1,4 @@
-# website
-Public facing company marketing and information website
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2479a750-cecc-4cd4-b03c-ae7dd0d0f63c/deploy-status)](https://app.netlify.com/sites/mellifluous-parfait-62ddc0/deploys)
 
 <p align="center">
   <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
