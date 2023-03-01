@@ -1,5 +1,4 @@
 const searchArticles = async (searchParams) => {
-
     const query = { query: SEARCH_ARTICLES }
     const variables = {
         variables: {
@@ -66,8 +65,21 @@ const GET_PAGES = `query GetPages {
             title
             slug
             category {
-              name
-              slug
+                name
+                slug
+            }
+            headline
+            content {
+                json
+            }
+            stageImage {
+                url
+                title
+                description
+                contentType
+                size
+                width
+                height
             }
         }
     }

@@ -45,7 +45,7 @@ async function generateMenu() {
             links: [
                 {
                     name: "Stories",
-                    slug: "stories"
+                    slug: "/stories"
                 }
             ]
         }
@@ -60,12 +60,12 @@ async function getPageLinks() {
         const { category } = page;
         groups[category.name] = {
             name: category.name,
-            slug: category.slug,
+            slug: `/${category.slug}`,
             subLinks: [
                 ...(groups[category.name]?.subLinks || []),
                 {
                     name: page.title,
-                    slug: `${category.slug}/${page.slug}`
+                    slug: `/${category.slug}/${page.slug}`
                 }
             ]
         };
