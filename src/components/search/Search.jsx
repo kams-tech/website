@@ -1,5 +1,5 @@
 import React from "react";
-import { QueryClientProvider, QueryClient, useInfiniteQuery } from "react-query";
+import { QueryClientProvider, QueryClient } from "react-query";
 import { SearchContextProvider, useSearchContext } from "./context";
 import SearchBox from "./SearchBox";
 import { executeSearch } from ".";
@@ -11,9 +11,9 @@ const EntrySearch = ({ initialData }) => {
 
     const { state } = useSearchContext()
 
-    const { 
-        fetchNextPage, 
-        data, 
+    const {
+        fetchNextPage,
+        data,
         hasNextPage
     } = useQuery({
         key: [Key, state.q],
