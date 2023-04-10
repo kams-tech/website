@@ -1,0 +1,29 @@
+.navigation__wrapper {
+    position: fixed;
+    top: 0px;
+    right: 3.056vw;
+    overflow: hidden auto;
+    height: 100vh;
+    padding-bottom: 22.92vw;
+    width: calc(93.888vw);
+    display: none;
+    opacity: 0;
+    transform: translateX(-11px);
+}
+
+.navigation__wrapper.navigation__wrapper--open {
+    display: block;
+    opacity: 1;
+    transform: translateX(0px);
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.navigation__content {
+    position: relative;
+    background: black;
+    border-radius: 1.375rem;
+    margin: 0.6875rem 0px 0px;
+    padding: 2.75rem 2.0625rem;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+}

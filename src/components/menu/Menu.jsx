@@ -1,7 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Hamburger from "./Hamburger";
-import { MenuContextProvider, MenuContext } from "./context";
+import { MenuContextProvider, useMenuContext } from "./context";
+import classNames from "classnames";
+
+const Navigation_Wrapper_Open = "navigation__wrapper--open";
 
 const Search = () => {
     return (
@@ -48,14 +51,15 @@ const Navigation = () => {
 
     const { menu: { menu } } = useStaticQuery(GET_MENU)
 
-    const { state: { isOpen }, toggle } = useContext(MenuContext)
+    const { state: { isOpen }, toggle } = useMenuContext()
 
     const handleOpenSubNavigation = () => {
         console.log('handleOpenSubNavigation')
-    }
+    }   
 
     return (
-        <div className='navigation__content'>
+        <div className={classNames('navigation__wrapper', {[Navigation_Wrapper_Open]: isOpen})}>
+            <div className="navigation__content">
             {menu.map((item, index) => {
                 return (
                     <ul className='navigation__main-level' key={index}>
@@ -83,6 +87,7 @@ const Navigation = () => {
                     </ul>
                 )
             })}
+            </div>
         </div>
     )
 }

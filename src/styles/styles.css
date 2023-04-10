@@ -1,0 +1,35 @@
+/* @custom-media --med (width <= 50rem);
+
+@media (--med) {
+  a {
+    &:hover {
+      color: color-mod(black alpha(54%));
+    }
+  }
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+
+body {
+    font-family: 'Mulish', sans-serif;
+}
+
+.stage__content-section {
+    position: relative;
+}
+
+.stage__content-section::before {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 6px;
+        height: 100%;
+        content: "";
+        z-index: 99;
+        background-color: rgb(0, 0, 0);
+        opacity: 0.54;
+    }
+
+    .stage__inner-container {
+        display: flex;
+    }

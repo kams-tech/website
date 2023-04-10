@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { MenuContext } from './context';
+import React from 'react';
+import { useMenuContext } from './context';
 import Burger from 'hamburger-react';
 
 const Hamburger = () => {
 
-    const { state, toggle } = useContext(MenuContext)
+    const { state, toggle } = useMenuContext()
 
     return (
         <div>

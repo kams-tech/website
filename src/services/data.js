@@ -41,8 +41,14 @@ const defaultQueryOptions = {
 const defaultSearchParams = {
     limit: 1
 }
-const SEARCH_ARTICLES = `query SearchArticles($limit: Int!) {
-    articleCollection(limit: $limit) {
+const SEARCH_ARTICLES = `query SearchArticles($limit: Int!, $q: String) {
+    articleCollection(limit: $limit, where: {
+      OR: [
+        {title_contains: $q},
+        {subtitle_contains: $q},
+        {content_contains: $q}
+      ]
+    }) {
         items {
             title
             slug
@@ -51,6 +57,9 @@ const SEARCH_ARTICLES = `query SearchArticles($limit: Int!) {
                 items {
                   title
                 }
+            }
+          	content {
+              json
             }
         }
         total

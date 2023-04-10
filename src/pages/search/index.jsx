@@ -1,25 +1,22 @@
 import React from "react"
 import { QueryClient, QueryClientProvider } from "react-query"
-import { ArticleSearch } from "../../components/ArticleSearch"
-import { searchArticles } from "../../services/data"
+import { EntrySearch } from "../../components/EntrySearch"
+import { search } from "../../services"
 
 const queryClient = new QueryClient()
 
-export default function Articles({ serverData }) {
+export default function Search({ serverData }) {
     return (
         <QueryClientProvider client={queryClient}>
-            <ArticleSearch initialData={serverData.initialData} />
+            <EntrySearch initialData={serverData.initialData} query={serverData.query?.q}/>
         </QueryClientProvider>
     )
 }
 
 export async function getServerData(context) {
-
-console.log("context", context)
-
+    
     const query = context.query || {}
-
-    const data = await searchArticles(query)
+    const data = await search(query)
 
     return {
         props: {

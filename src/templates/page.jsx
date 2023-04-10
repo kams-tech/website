@@ -10,7 +10,7 @@ export default function Page({ pageContext: { page }, ...props }) {
                     <div className="stage__image-wrapper">
                         <Image {...page.stageImage} />
                     </div>
-                    <div className="stage__content">
+                    <div className="stage__content mt-4">
                         <h1 className="stage__headline">{page.headline}</h1>
                     </div>
                 </div>
