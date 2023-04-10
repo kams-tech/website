@@ -7,7 +7,7 @@ const client = contentful.createClient({
     removeUnresolved: true
 })
 
-const search = async ({ page = 1, limit = 10, q }) => {
+const search = async ({ page = 1, limit = 1, q }) => {
     
     const queryParams = {
         limit,
@@ -20,6 +20,7 @@ const search = async ({ page = 1, limit = 10, q }) => {
     return {
         total: response.total,
         skip: response.skip,
+        page,
         limit: response.limit,
         items: response.items.map(item => ({
             fields: item.fields,

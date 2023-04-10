@@ -1,26 +1,28 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
+import { useSearchContext } from './context';
 
-export default function SearchBox({ q }) {
+export default function SearchBox() {
 
-    const [searchTerm, setSearchTerm] = useState(q)
-    const inputRef = useRef(searchTerm)
+    const { state, update } = useSearchContext();
+    const inputRef = useRef(state.q)
 
     const handleKeyDown = (event) =>
-        event.key === 'Enter' && setSearchTerm(inputRef.current.value);
+        event.key === 'Enter' && update(inputRef.current.value);
 
-    const handleClick = () =>
-        setSearchTerm(inputRef.current.value);
+    const handleSubmit = () =>
+        update(inputRef.current.value);
 
     return (
         <div>
             <input 
-                ref={inputRef} 
+                ref={inputRef}
+                defaultValue={state.q}
                 onKeyDown={handleKeyDown} 
                 type="search" 
                 placeholder="search" />
 
             <input 
-                onClick={handleClick} 
+                onClick={handleSubmit} 
                 type="button" 
                 value="Submit" />
         </div>
