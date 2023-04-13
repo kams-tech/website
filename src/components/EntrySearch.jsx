@@ -1,13 +1,9 @@
 import React from "react";
-import { QueryClientProvider, QueryClient } from "react-query";
-import { SearchContextProvider, useSearchContext } from "./context";
-import SearchBox from "./SearchBox";
-import { executeSearch } from ".";
-import { useQuery } from "../../hooks";
+import { useSearchContext, SearchBox, executeSearch, useQuery } from "../components/search";
 
 const Key = "EntrySearch"
 
-const EntrySearch = ({ initialData }) => {
+export default function EntrySearch() {
 
     const { state } = useSearchContext()
 
@@ -61,16 +57,5 @@ const EntrySearch = ({ initialData }) => {
                 }
             </section>
         </div>
-    )
-}
-
-export default function Search({ q, initialData }) {
-    const queryClient = new QueryClient()
-    return (
-        <SearchContextProvider q={q}>
-            <QueryClientProvider client={queryClient}>
-                <EntrySearch initialData={initialData} />
-            </QueryClientProvider>
-        </SearchContextProvider>
     )
 }

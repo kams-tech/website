@@ -17,7 +17,9 @@ const getNextPageParam = (lastPage, allPages) => {
     }
 }
 
-const useQuery = ({ key, queryFn, initialData, }) => {
+const useQuery = ({ key, queryFn }) => {
+
+    const { state } = useSearchContext()
 
     const { 
         fetchNextPage, 
@@ -26,7 +28,7 @@ const useQuery = ({ key, queryFn, initialData, }) => {
     } = useInfiniteQuery({
         queryKey: getQueryKey(key),
         queryFn: (params) => queryFn(params),
-        initialData: { pages: [initialData], pageParams: [] },
+        initialData: { pages: [state.initialData], pageParams: [] },
         getNextPageParam: (lastPage, allPages) => getNextPageParam(lastPage, allPages)
     })
 
