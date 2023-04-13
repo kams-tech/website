@@ -1,7 +1,11 @@
-import Search from "./Search";
 import { search } from "../../services";
+import { useQuery } from "./useQuery";
+import { SearchContextProvider } from "./context";
+import { SearchBox } from "./SearchBox";
 
 export {
-    Search,
-    search as executeSearch
+    SearchContextProvider,
+    SearchBox,
+    search as executeSearch,
+    useQuery
 }

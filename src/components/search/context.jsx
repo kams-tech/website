@@ -1,9 +1,12 @@
 import React, { createContext, useState, useContext } from "react";
+import { QueryClientProvider, QueryClient } from "react-query";
 
-const SearchContext = createContext({})
+const SearchContext = createContext({
+    queryClient: new QueryClient()
+})
 
-const SearchContextProvider = ({ q = "", children }) => {
-    const [state, setState] = useState({q})
+const SearchContextProvider = ({ q = "", initialData = [], children }) => {
+    const [state, setState] = useState({q, initialData})
 
     const update = (searchTerm) => {
         setState({
@@ -14,7 +17,9 @@ const SearchContextProvider = ({ q = "", children }) => {
 
     return (
         <SearchContext.Provider value={{ state, update }}>
-            {children}
+            <QueryClientProvider client={state.queryClient}>
+                {children}
+            </QueryClientProvider>
         </SearchContext.Provider>
     )
 }
@@ -28,5 +33,7 @@ const useSearchContext = () => {
 
     return context
 }
+
+
 
 export { useSearchContext, SearchContextProvider }
