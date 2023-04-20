@@ -14,7 +14,7 @@ export default function EntrySearch() {
     } = useQuery({
         key: [Key, state.q],
         queryFn: (params) => executeSearch({ q: state.q, page: params.pageParam }),
-        initialData: initialData
+        initialData: state.initialData
     })
 
     return (
