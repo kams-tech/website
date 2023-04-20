@@ -12,9 +12,8 @@ export default function EntrySearch() {
         data,
         hasNextPage
     } = useQuery({
-        key: [Key, state.q],
-        queryFn: (params) => executeSearch({ q: state.q, page: params.pageParam }),
-        initialData: state.initialData
+        key: Key,
+        queryFn: (params) => executeSearch({ q: state.q, page: params.pageParam })
     })
 
     return (

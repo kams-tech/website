@@ -1,6 +1,6 @@
 import React from "react"
 import EntrySearch from "../../components/EntrySearch"
-import { SearchContextProvider } from "../../components/search"
+import { SearchContextProvider, executeSearch } from "../../components/search"
 
 export default function SearchPage({ serverData }) {
     return (

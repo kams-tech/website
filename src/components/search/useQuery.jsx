@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from "react-query";
-
+import { useSearchContext } from "./";
 
 const toLowercase = (key) => typeof key === 'string' ? key.toLowerCase() : key
 
@@ -26,7 +26,7 @@ const useQuery = ({ key, queryFn }) => {
         data, 
         hasNextPage
     } = useInfiniteQuery({
-        queryKey: getQueryKey(key),
+        queryKey: getQueryKey([key, state.q]),
         queryFn: (params) => queryFn(params),
         initialData: { pages: [state.initialData], pageParams: [] },
         getNextPageParam: (lastPage, allPages) => getNextPageParam(lastPage, allPages)

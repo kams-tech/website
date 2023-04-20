@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useSearchContext } from './context';
+import { useSearchContext } from './';
 
 export default function SearchBox() {
 

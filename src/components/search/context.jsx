@@ -1,12 +1,12 @@
 import React, { createContext, useState, useContext } from "react";
 import { QueryClientProvider, QueryClient } from "react-query";
 
-const SearchContext = createContext({
-    queryClient: new QueryClient()
-})
+const queryClient = new QueryClient()
+
+const SearchContext = createContext()
 
 const SearchContextProvider = ({ q = "", initialData = [], children }) => {
-    const [state, setState] = useState({q, initialData})
+    const [state, setState] = useState({q, initialData, queryClient})
 
     const update = (searchTerm) => {
         setState({
